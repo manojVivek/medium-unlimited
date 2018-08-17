@@ -1,0 +1,33 @@
+{
+  "name": "Medium Unlimited: Unlimited articles for free",
+  "description": "Unlocks medium.com for unlimited reads, no membership required",
+  "short_name": "Medium Unlimited",
+  "version": "1.1",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.bundle.js"]
+  },
+  "browser_action": {
+    "default_icon": "static/logo_128.png",
+    "default_title": "Unlock Medium.com Article"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.medium.com/*",
+        "https://medium.com/*",
+        "http://medium.com/*",
+        "https://www.medium.com/*"
+      ],
+      "js": ["main.bundle.js"]
+    }
+  ],
+  "icons": {
+    "16": "static/logo_16.png",
+    "48": "static/logo_48.png",
+    "128": "static/logo_128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "permissions": ["webRequest", "webRequestBlocking", "https://medium.com/*"],
+  "web_accessible_resources": ["static/*"]
+}
