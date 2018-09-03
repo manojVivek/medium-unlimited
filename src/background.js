@@ -28,9 +28,11 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
 function extractArticleContent(responseData) {
   const doc = document.createElement('html');
   doc.innerHTML = responseData.body;
-  const content = document.createElement('div');
-  Array.from(doc.getElementsByClassName('section-content')).forEach(e =>
-    content.appendChild(e)
+  const content = Array.from(
+    doc.getElementsByClassName('section-content')
+  ).reduce(
+    (accumulator, section) => accumulator.appendChild(section),
+    document.createElement('div')
   );
   return new XMLSerializer().serializeToString(content);
 }

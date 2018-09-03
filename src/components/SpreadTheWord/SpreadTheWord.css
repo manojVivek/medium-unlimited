@@ -1,0 +1,18 @@
+.header {
+  text-align: center;
+}
+
+.shareIcon {
+  display: inline-block;
+  padding: 15px;
+}
+
+.shareList {
+  width: 288px;
+  padding: 20px;
+  text-align: center;
+}
+
+.handCursor {
+  cursor: pointer;
+}
