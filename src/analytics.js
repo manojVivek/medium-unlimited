@@ -1,8 +1,9 @@
 import AmplitudeClient from 'amplitude';
 import {amplitudeApiKey} from './utils';
+import {getUserId} from './storage';
 
 const amplitude = new AmplitudeClient(amplitudeApiKey(), {
-  user_id: 'user_id',
+  user_id: getUserId() || 'user_id',
 });
 
 export function track(event_type) {

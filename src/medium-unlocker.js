@@ -1,14 +1,15 @@
 import {log} from './utils';
-import {contentSectionClassName, membershipPromptClassName} from './constants';
+import {
+  CONTENT_SECTION_CLASSNAME,
+  MEMBERSHIP_PROMPT_CLASSNAME,
+} from './constants';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import App from './components/App/App.jsx';
 
 const floatingContentDivId = 'mediumUnlimited';
-const hiddenClassName = 'mediumUnlimitedHidden';
-const visibleClassName = 'mediumUnlimitedVisible';
 const floatingButtonParent = document.createElement('div');
-floatingButtonParent.setAttribute('id', 'mediumUnlimited');
+floatingButtonParent.setAttribute('id', floatingContentDivId);
 document.body.appendChild(floatingButtonParent);
 let previousUrl;
 let loaderElement;
@@ -58,7 +59,7 @@ function _setContent(response) {
   const tempDiv = document.createElement('div');
   tempDiv.innerHTML = response.content.trim();
   const innerSection = document.getElementsByClassName(
-    contentSectionClassName
+    CONTENT_SECTION_CLASSNAME
   )[0];
   innerSection.parentElement.replaceChild(tempDiv.firstChild, innerSection);
 }
@@ -80,7 +81,7 @@ function _showLoader() {
   `;
   loaderElement.src = loaderUrl;
   const membershipPromtElement = document.getElementsByClassName(
-    membershipPromptClassName
+    MEMBERSHIP_PROMPT_CLASSNAME
   )[0];
   membershipPromtElement.parentElement.replaceChild(
     loaderElement,
@@ -91,5 +92,7 @@ function _showLoader() {
 }
 
 function _hasMembershipPrompt() {
-  return document.getElementsByClassName(membershipPromptClassName).length > 0;
+  return (
+    document.getElementsByClassName(MEMBERSHIP_PROMPT_CLASSNAME).length > 0
+  );
 }

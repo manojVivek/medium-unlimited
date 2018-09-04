@@ -1,6 +1,10 @@
 import intercept from './cookie_interceptors'; //Importing just to make sure the interceptors are registered.
-import {log} from './utils';
+import {log, init} from './utils';
 import {track} from './analytics';
+import {incrementReadCountAndGet} from './storage';
+
+//Initialize global handlers
+init();
 
 const inProgressUrls = {};
 
@@ -13,7 +17,8 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
   _fetch(request.url)
     .then(responseData => {
       const content = extractArticleContent(responseData);
-      sendResponse({status: 'SUCCESS', content});
+      const counter = incrementReadCountAndGet();
+      sendResponse({status: 'SUCCESS', content, counter});
       track('SUCCESS');
       delete inProgressUrls[request.url];
     })

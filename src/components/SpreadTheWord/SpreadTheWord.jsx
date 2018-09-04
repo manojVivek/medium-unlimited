@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './SpreadTheWord.css';
+import {track} from '../../analytics';
 
 class SpreadTheWord extends React.Component {
   constructor(props) {
@@ -50,14 +51,15 @@ class SpreadTheWord extends React.Component {
     return (
       <span
         className={classNames(styles.handCursor)}
-        onClick={() =>
+        onClick={() => {
+          track('TWITTER_SHARE_CLICKED');
           window.open(
             'https://twitter.com/intent/tweet?text=' +
               this._getShareContent() +
               this._getShareUrl('twitter'),
             '_blank'
-          )
-        }
+          );
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -86,15 +88,16 @@ class SpreadTheWord extends React.Component {
     return (
       <span
         className={classNames(styles.handCursor)}
-        onClick={() =>
+        onClick={() => {
+          track('FB_SHARE_CLICKED');
           window.open(
             'https://www.facebook.com/sharer/sharer.php?u=' +
               this._getShareUrl('facebook') +
               '&quote=' +
               this._getShareContent(),
             '_blank'
-          )
-        }
+          );
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -123,15 +126,16 @@ class SpreadTheWord extends React.Component {
     return (
       <span
         className={classNames(styles.handCursor)}
-        onClick={() =>
+        onClick={() => {
+          track('LINKEDIN_SHARE_CLICKED');
           window.open(
             'https://www.linkedin.com/shareArticle?mini=true&url=' +
               this._getShareUrl('linkedin') +
               '&summary=' +
               this._getShareContent(),
             '_blank'
-          )
-        }
+          );
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -160,13 +164,14 @@ class SpreadTheWord extends React.Component {
     return (
       <span
         className={classNames(styles.handCursor)}
-        onClick={() =>
+        onClick={() => {
+          track('GPLUS_SHARE_CLICKED');
           window.open(
             'https://plus.google.com/share?url=' +
               this._getShareUrl('googleplus'),
             '_blank'
-          )
-        }
+          );
+        }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
