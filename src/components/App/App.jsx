@@ -7,7 +7,7 @@ import {track} from '../../analytics';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.imageUrl = chrome.extension.getURL('static/floating_button_64.png');
+    this.imageUrl = chrome.extension.getURL('static/floating_button_256.png');
     this.state = {visible: false};
   }
 
@@ -67,15 +67,16 @@ class App extends React.Component {
           <span className={classNames(styles.handCursor)}>&#x2715;</span>
         </div>
         <div
-          className={classNames(styles.iconImg)}
-          style={{background: 'url(' + this.imageUrl + ')'}}
+          className={classNames(styles.iconContainer)}
           onClick={() => {
             if (!this.state.expanded) {
               track('FLOATING_BUTTON_CLICKED');
             }
             this.setState({expanded: !this.state.expanded});
           }}
-        />
+        >
+          <img className={classNames(styles.iconImg)} src={this.imageUrl} />
+        </div>
         <div
           className={classNames(styles.headerContent, {
             [styles.visibleHeaderContent]: this.state.expanded,

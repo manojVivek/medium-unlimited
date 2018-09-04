@@ -72,7 +72,7 @@ function _showLoader() {
   const loaderUrl = chrome.extension.getURL('static/loader.gif');
   loaderElement = document.createElement('div');
   loaderElement.innerHTML = `
-    <div style="padding: 25px; text-align: center;">
+    <div style="margin: 50px; text-align: center;">
       Unlocking content, please wait...
       <img
         src="${loaderUrl}"

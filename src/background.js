@@ -34,7 +34,7 @@ function extractArticleContent(responseData) {
   const doc = document.createElement('html');
   doc.innerHTML = responseData.body;
   const content = Array.from(
-    doc.getElementsByClassName('section-content')
+    doc.getElementsByClassName('postArticle-content')
   ).reduce(
     (accumulator, section) => accumulator.appendChild(section),
     document.createElement('div')
