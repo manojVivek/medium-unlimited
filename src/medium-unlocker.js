@@ -20,9 +20,10 @@ function registerListeners() {
   setInterval(() => {
     if (window.location.href != previousUrl) {
       previousUrl = window.location.href;
-      setTimeout(unlockIfHidden, 1500); //Again, arbitrary 1 sec, might break.
+      _removeFloatingButton();
     }
-  }, 500);
+    unlockIfHidden();
+  }, 1500);
 }
 
 registerListeners();
@@ -30,7 +31,6 @@ registerListeners();
 function unlockIfHidden() {
   if (!_hasMembershipPrompt()) {
     log('Content is open, nothing to do');
-    _removeFloatingButton();
     return;
   }
   log('Content is hidden');
