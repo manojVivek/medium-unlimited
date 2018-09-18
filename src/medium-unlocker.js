@@ -2,6 +2,7 @@ import {log} from './utils';
 import {
   CONTENT_SECTION_CLASSNAME,
   MEMBERSHIP_PROMPT_CLASSNAME,
+  FETCH_CONTENT_MESSAGE,
 } from './constants';
 import ReactDOM from 'react-dom';
 import React from 'react';
@@ -37,7 +38,7 @@ function unlockIfHidden() {
   _showLoader();
   log('Sending message to fetch', document.location.href);
   chrome.runtime.sendMessage(
-    {type: 'fetchContent', url: document.location.href},
+    {type: FETCH_CONTENT_MESSAGE, url: document.location.href},
     response => {
       log('Received response for fetchContent');
       _setContent(response);

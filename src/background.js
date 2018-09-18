@@ -1,7 +1,8 @@
 import intercept from './cookie_interceptors'; //Importing just to make sure the interceptors are registered.
 import {log, init} from './utils';
 import {track} from './analytics';
-import {incrementReadCountAndGet} from './storage';
+import {incrementReadCountAndGet, getUserId} from './storage';
+import {FETCH_CONTENT_MESSAGE, FETCH_USER_ID} from './constants';
 
 //Initialize global handlers
 init();
@@ -11,6 +12,19 @@ const inProgressUrls = {};
 intercept(inProgressUrls);
 
 chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
+  switch (request.type) {
+    case FETCH_CONTENT_MESSAGE:
+      return _processContentRequest(request, sendResponse);
+    case FETCH_USER_ID:
+      return _processUserIdRequest(sendResponse);
+  }
+});
+
+function _processUserIdRequest(sendResponse) {
+  sendResponse({status: 'SUCCESS', userId: getUserId()});
+}
+
+function _processContentRequest(request, sendResponse) {
   log('Fetching content for', request.url);
   inProgressUrls[request.url] = true;
   track('REQUESTED');
@@ -28,7 +42,7 @@ chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
       delete inProgressUrls[request.url];
     });
   return true;
-});
+}
 
 function extractArticleContent(responseData) {
   const doc = document.createElement('html');
