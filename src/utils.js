@@ -25,3 +25,10 @@ export function init() {
     }
   });
 }
+
+export function urlWithoutQueryParams(url) {
+  if (!url) {
+    return '';
+  }
+  return url.split('?')[0];
+}
