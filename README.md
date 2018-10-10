@@ -18,3 +18,6 @@ This will generate the bundle and other required files in ./dist directory.
 
 Load the generated chrome extension in chrome by `Kebab menu(⋮) -> More Tools -> Extensions` and then click on `LOAD UNPACKED` and select the dist folder.
 Chrome extension is loaded and ready to use.
+
+Screenshot:
+![alt text](https://raw.githubusercontent.com/manojVivek/medium-unlimited/master/designs/screenshot.png "Before after comparison")
