@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.3.4",
+  "version": "1.3.5",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
@@ -13,7 +13,12 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://medium.com/*", "https://towardsdatascience.com/*"],
+      "matches": [
+        "https://medium.com/*",
+        "https://towardsdatascience.com/*",
+        "https://hackernoon.com/*",
+        "https://medium.freecodecamp.org/*"
+      ],
       "js": ["main.bundle.js"]
     }
   ],
@@ -27,7 +32,9 @@
     "webRequest",
     "webRequestBlocking",
     "https://medium.com/*",
-    "https://towardsdatascience.com/*"
+    "https://towardsdatascience.com/*",
+    "https://hackernoon.com/*",
+    "https://medium.freecodecamp.org/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

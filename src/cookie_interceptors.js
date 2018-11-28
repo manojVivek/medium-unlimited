@@ -1,5 +1,12 @@
 import {urlWithoutQueryParams} from './utils';
 
+const urlsList = [
+  'https://medium.com/*',
+  'https://towardsdatascience.com/*',
+  'https://hackernoon.com/*',
+  'https://medium.freecodecamp.org/*',
+];
+
 export default function intercept(inProgressUrls) {
   function onBeforeSendHeaders(details) {
     if (details.requestHeaders && shouldIntercept(details)) {
@@ -12,7 +19,7 @@ export default function intercept(inProgressUrls) {
   chrome.webRequest.onBeforeSendHeaders.addListener(
     onBeforeSendHeaders,
     {
-      urls: ['https://medium.com/*', 'https://towardsdatascience.com/*'],
+      urls: urlsList,
     },
     ['requestHeaders', 'blocking']
   );
@@ -28,7 +35,7 @@ export default function intercept(inProgressUrls) {
   chrome.webRequest.onHeadersReceived.addListener(
     onHeadersReceived,
     {
-      urls: ['https://medium.com/*', 'https://towardsdatascience.com/*'],
+      urls: urlsList,
     },
     ['responseHeaders', 'blocking']
   );
