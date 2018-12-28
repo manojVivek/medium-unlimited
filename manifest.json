@@ -17,7 +17,8 @@
         "https://medium.com/*",
         "https://towardsdatascience.com/*",
         "https://hackernoon.com/*",
-        "https://medium.freecodecamp.org/*"
+        "https://medium.freecodecamp.org/*",
+        "https://psiloveyou.xyz/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -34,7 +35,8 @@
     "https://medium.com/*",
     "https://towardsdatascience.com/*",
     "https://hackernoon.com/*",
-    "https://medium.freecodecamp.org/*"
+    "https://medium.freecodecamp.org/*",
+    "https://psiloveyou.xyz/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
