@@ -6,6 +6,7 @@ const urlsList = [
   'https://hackernoon.com/*',
   'https://medium.freecodecamp.org/*',
   'https://psiloveyou.xyz/*',
+  'https://betterhumans.coach.me/*',
 ];
 
 export default function intercept(inProgressUrls) {
