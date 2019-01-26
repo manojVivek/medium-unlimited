@@ -82,7 +82,7 @@ function _getExternalLinkMessage(externalUrl) {
       <img src="chrome-extension://lohlcamnalgkgakkhbioeaanijdkdkpe/static/logo_128.png" class="u-width100 u-marginRight36">
       <div class="u-paddingTop25">
         <h1 class="ui-brand2 u-marginBottom30">External Publisher Article</h1>
-        <p class="ui-body u-marginTop15 u-marginBottom30">This article's content cannot be unlocked in here. But you can follow the below link to read the full content.</p>
+        <p class="ui-body u-marginTop15 u-marginBottom30">This article's content couldn't be unlocked in here. But fortunately, you can follow the below link to read the full content.</p>
         <div class="buttonSet">
           <a href="${externalUrl}">
             <div class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-paddingRight20 u-xs-marginBottom10">
