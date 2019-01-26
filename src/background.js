@@ -1,5 +1,5 @@
 import intercept from './cookie_interceptors'; //Importing just to make sure the interceptors are registered.
-import {log, init} from './utils';
+import {log, init, hasMembershipPrompt} from './utils';
 import {track} from './analytics';
 import {incrementReadCountAndGet, getUserId} from './storage';
 import {FETCH_CONTENT_MESSAGE, FETCH_USER_ID} from './constants';
@@ -30,10 +30,22 @@ function _processContentRequest(request, sendResponse) {
   track('REQUESTED');
   _fetch(request.url)
     .then(responseData => {
-      const content = extractArticleContent(responseData);
+      const doc = document.createElement('html');
+      doc.innerHTML = responseData.body;
+      const hadMembershipPrompt = hasMembershipPrompt(doc);
+      const content = extractArticleContent(doc);
       const counter = incrementReadCountAndGet();
-      sendResponse({status: 'SUCCESS', content, counter});
-      track('SUCCESS');
+      const externalUrl = extractExternalUrlInContent(doc);
+      sendResponse({ status: 'SUCCESS', content, counter, hadMembershipPrompt, externalUrl });
+      let trackStatus = 'SUCCESS';
+      if (hadMembershipPrompt) {
+        if (externalUrl) {
+          trackStatus = 'PARTIAL-SUCCESS';
+        } else {
+          trackStatus = 'PARTIAL-FAILED';
+        }
+      }
+      track(trackStatus);
       delete inProgressUrls[request.url];
     })
     .catch(error => {
@@ -44,9 +56,7 @@ function _processContentRequest(request, sendResponse) {
   return true;
 }
 
-function extractArticleContent(responseData) {
-  const doc = document.createElement('html');
-  doc.innerHTML = responseData.body;
+function extractArticleContent(doc) {
   const content = Array.from(
     doc.getElementsByClassName('postArticle-content')
   ).reduce(
@@ -54,6 +64,18 @@ function extractArticleContent(responseData) {
     document.createElement('div')
   );
   return new XMLSerializer().serializeToString(content);
+}
+
+function extractExternalUrlInContent(doc) {
+  const canonicalUrlElement = doc.querySelector('link[rel=canonical]');
+  if (!canonicalUrlElement) {
+    return;
+  }
+  const canonicalUrl = canonicalUrlElement.getAttribute('href');
+  if (!canonicalUrl || canonicalUrl.indexOf('medium.com/') > -1) {
+    return;
+  }
+  return canonicalUrl;
 }
 
 function _fetch(url) {

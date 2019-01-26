@@ -1,4 +1,4 @@
-import {log} from './utils';
+import {log, hasMembershipPrompt} from './utils';
 import {
   CONTENT_SECTION_CLASSNAME,
   MEMBERSHIP_PROMPT_CLASSNAME,
@@ -30,7 +30,7 @@ function registerListeners() {
 registerListeners();
 
 function unlockIfHidden() {
-  if (!_hasMembershipPrompt()) {
+  if (!hasMembershipPrompt(document)) {
     log('Content is open, nothing to do');
     return;
   }
@@ -56,13 +56,59 @@ function _removeFloatingButton() {
   ReactDOM.unmountComponentAtNode(floatingButtonParent);
 }
 
-function _setContent(response) {
+function _setContent({content, hadMembershipPrompt, externalUrl}) {
   const tempDiv = document.createElement('div');
-  tempDiv.innerHTML = response.content.trim();
+  tempDiv.innerHTML = content.trim();
   const innerSection = document.getElementsByClassName(
     CONTENT_SECTION_CLASSNAME
   )[0];
+  if (hadMembershipPrompt) {
+    let messageContent;
+    if (externalUrl) {
+      messageContent = _getExternalLinkMessage(externalUrl);
+    } else {
+      messageContent = _getUnableToUnlockMessage();
+    }
+    tempDiv.firstChild.appendChild(messageContent);
+  }
   innerSection.parentElement.replaceChild(tempDiv.firstChild, innerSection);
+}
+
+function _getExternalLinkMessage(externalUrl) {
+  const domainName = new URL(externalUrl).hostname;
+  const container = document.createElement('div');
+  container.innerHTML = `
+    <div class="u-borderBox u-maxWidth700 u-marginAuto u-marginBottom40 u-marginTop40 u-padding30 u-flexTop u-borderRadius4 u-boxShadow2px10pxBlackLighter u-xs-hide u-backgroundNoRepeat">
+      <img src="chrome-extension://lohlcamnalgkgakkhbioeaanijdkdkpe/static/logo_128.png" class="u-width100 u-marginRight36">
+      <div class="u-paddingTop25">
+        <h1 class="ui-brand2 u-marginBottom30">External Publisher Article</h1>
+        <p class="ui-body u-marginTop15 u-marginBottom30">This article's content cannot be unlocked in here. But you can follow the below link to read the full content.</p>
+        <div class="buttonSet">
+          <a href="${externalUrl}">
+            <div class="button button--large button--withChrome u-baseColor--buttonNormal button--withIcon button--withSvgIcon button--withIconAndLabel u-boxShadow u-textAlignLeft u-marginBottom15 u-backgroundWhite u-textColorDarker u-sm-width220 u-sm-marginRight20 u-xs-marginRight0 u-paddingRight20 u-xs-marginBottom10">
+              <span class="button-label  js-buttonLabel">Continue to ${domainName} for full content</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  return container;
+}
+
+function _getUnableToUnlockMessage() {
+  const container = document.createElement('div');
+  container.innerHTML = `
+    <div class="u-borderBox u-maxWidth700 u-marginAuto u-marginBottom40 u-marginTop40 u-padding30 u-flexTop u-borderRadius4 u-boxShadow2px10pxBlackLighter u-xs-hide u-backgroundNoRepeat">
+      <img src="chrome-extension://lohlcamnalgkgakkhbioeaanijdkdkpe/static/logo_128.png" class="u-width100 u-marginRight36">
+      <div class="u-paddingTop25">
+        <h1 class="ui-brand2 u-marginBottom30">Apologies 😔</h1>
+        <p class="ui-body u-marginTop15 u-marginBottom30">Unfortunately, the contents of this article cannot be unlocked due to this publisher's medium settings.</p>
+        <p class="ui-body u-marginTop15 u-marginBottom30">Please continue reading other articles.</p>
+      </div>
+    </div>
+  `;
+  return container;
 }
 
 function _hideLoader() {
@@ -92,8 +138,3 @@ function _showLoader() {
   return loaderElement;
 }
 
-function _hasMembershipPrompt() {
-  return (
-    document.getElementsByClassName(MEMBERSHIP_PROMPT_CLASSNAME).length > 0
-  );
-}

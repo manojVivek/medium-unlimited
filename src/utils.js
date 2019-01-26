@@ -1,6 +1,7 @@
 import config from './config';
 import {setUserId, getUserId} from './storage';
 import {track} from './analytics';
+import {MEMBERSHIP_PROMPT_CLASSNAME} from './constants';
 
 export function log(...messages) {
   if (process.env.NODE_ENV === 'production') {
@@ -31,4 +32,10 @@ export function urlWithoutQueryParams(url) {
     return '';
   }
   return url.split('?')[0];
+}
+
+export function hasMembershipPrompt(document) {
+  return (
+    document.getElementsByClassName(MEMBERSHIP_PROMPT_CLASSNAME).length > 0
+  );
 }
