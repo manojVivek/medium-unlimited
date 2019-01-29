@@ -2,7 +2,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
-    background: './src/background.js',
+    background: ['babel-polyfill', './src/background.js'],
     main: './src/medium-unlocker.js',
   },
   output: {

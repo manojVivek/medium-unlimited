@@ -2,6 +2,7 @@ import {urlWithoutQueryParams} from './utils';
 
 const urlsList = [
   'https://medium.com/*',
+  'https://www.google.com/*',
   'https://towardsdatascience.com/*',
   'https://hackernoon.com/*',
   'https://medium.freecodecamp.org/*',
@@ -12,7 +13,9 @@ const urlsList = [
 export default function intercept(inProgressUrls) {
   function onBeforeSendHeaders(details) {
     if (details.requestHeaders && shouldIntercept(details)) {
-      const newHeaders = removeHeader(details.requestHeaders, 'cookie');
+      let newHeaders = removeHeader(details.requestHeaders, 'cookie');
+      newHeaders = removeHeader(newHeaders, 'origin');
+
       return {requestHeaders: newHeaders};
     }
     return {requestHeaders: details.requestHeaders};
@@ -43,14 +46,7 @@ export default function intercept(inProgressUrls) {
   );
 
   function removeHeader(headers, headerToRemove) {
-    const newHeaders = [];
-    headers.forEach(({name, value}) => {
-      if (name.toLowerCase() === headerToRemove) {
-        return;
-      }
-      return newHeaders.push({name, value});
-    });
-    return newHeaders;
+    return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
   }
 
   function shouldIntercept(details) {

@@ -26,34 +26,74 @@ function _processUserIdRequest(sendResponse) {
 
 function _processContentRequest(request, sendResponse) {
   log('Fetching content for', request.url);
-  inProgressUrls[request.url] = true;
   track('REQUESTED');
   _fetch(request.url)
-    .then(responseData => {
+    .then(async responseData => {
       const doc = document.createElement('html');
       doc.innerHTML = responseData.body;
       const hadMembershipPrompt = hasMembershipPrompt(doc);
       const content = extractArticleContent(doc);
       const counter = incrementReadCountAndGet();
-      const externalUrl = extractExternalUrlInContent(doc);
+      let externalUrl = extractExternalUrlInContent(doc);
+      let isGoogleResult = false;
+      if (hadMembershipPrompt && !externalUrl) {
+        externalUrl = await getUrlFromGoogleSearch(request.url)
+          .catch(err => log('Error while searching', err));
+        isGoogleResult = true;
+      }
       sendResponse({ status: 'SUCCESS', content, counter, hadMembershipPrompt, externalUrl });
       let trackStatus = 'SUCCESS';
       if (hadMembershipPrompt) {
-        if (externalUrl) {
+        if (externalUrl && !isGoogleResult) {
           trackStatus = 'PARTIAL-SUCCESS';
+        } else if (externalUrl && isGoogleResult) {
+          trackStatus = 'SERP-SUCCESS';
         } else {
           trackStatus = 'PARTIAL-FAILED';
         }
       }
       track(trackStatus);
-      delete inProgressUrls[request.url];
     })
     .catch(error => {
       sendResponse({status: 'ERROR', error: JSON.stringify(error)});
       track('FAILED');
-      delete inProgressUrls[request.url];
     });
   return true;
+}
+
+async function getUrlFromGoogleSearch(url) {
+  const slugs = url.split('/');
+  const lastSlug = slugs[slugs.length - 1];
+  const words = lastSlug.split('-');
+  const requiredSlug = words.splice(0, words.length - 1).join('-');
+  const response = await _fetch(`https://www.google.com/search?q=${requiredSlug}`);
+  const doc = document.createElement('html');
+  doc.innerHTML = response.body;
+  const searchElement = doc.querySelector('#search');
+  if (!searchElement) {
+    return;
+  }
+  const links = searchElement.getElementsByTagName('a');
+  let requiredLink = null;
+  for (const link of links) {
+    if (isValidArticleUrl(link.href)) {
+      requiredLink = link;
+      break;
+    }
+  }
+  if (!requiredLink) {
+    return;
+  }
+  return requiredLink.href;
+}
+
+function isValidArticleUrl(url) {
+  return (
+    url &&
+    url.indexOf('medium.com') === -1 &&
+    url.indexOf('webcache.googleusercontent.com') === -1 &&
+    url.indexOf('chrome-extension://') === -1
+  );
 }
 
 function extractArticleContent(doc) {
@@ -79,9 +119,14 @@ function extractExternalUrlInContent(doc) {
 }
 
 function _fetch(url) {
-  return fetch(url, {credentials: 'include'}).then(response => {
+  inProgressUrls[url] = true;
+  return fetch(url, { credentials: 'include' }).then(response => {
     return response.text().then(body => {
-      return {status: response.status, body};
+      delete inProgressUrls[url];
+      return { status: response.status, body };
     });
+  }).catch(err => {
+    delete inProgressUrls[url];
+    throw err;
   });
 }
