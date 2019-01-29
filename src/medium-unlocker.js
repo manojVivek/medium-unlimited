@@ -79,7 +79,7 @@ function _getExternalLinkMessage(externalUrl) {
   const container = document.createElement('div');
   container.innerHTML = `
     <div class="u-borderBox u-maxWidth700 u-marginAuto u-marginBottom40 u-marginTop40 u-padding30 u-flexTop u-borderRadius4 u-boxShadow2px10pxBlackLighter u-xs-hide u-backgroundNoRepeat">
-      <img src="chrome-extension://lohlcamnalgkgakkhbioeaanijdkdkpe/static/logo_128.png" class="u-width100 u-marginRight36">
+      <img src="${chrome.extension.getURL('static/logo_128.png')}" class="u-width100 u-marginRight36">
       <div class="u-paddingTop25">
         <h1 class="ui-brand2 u-marginBottom30">External Publisher Article</h1>
         <p class="ui-body u-marginTop15 u-marginBottom30">This article's content couldn't be unlocked in here. But fortunately, you can follow the below link to read the full content.</p>
@@ -100,7 +100,7 @@ function _getUnableToUnlockMessage() {
   const container = document.createElement('div');
   container.innerHTML = `
     <div class="u-borderBox u-maxWidth700 u-marginAuto u-marginBottom40 u-marginTop40 u-padding30 u-flexTop u-borderRadius4 u-boxShadow2px10pxBlackLighter u-xs-hide u-backgroundNoRepeat">
-      <img src="chrome-extension://lohlcamnalgkgakkhbioeaanijdkdkpe/static/logo_128.png" class="u-width100 u-marginRight36">
+      <img src="${chrome.extension.getURL('static/logo_128.png')}" class="u-width100 u-marginRight36">
       <div class="u-paddingTop25">
         <h1 class="ui-brand2 u-marginBottom30">Apologies 😔</h1>
         <p class="ui-body u-marginTop15 u-marginBottom30">Unfortunately, the contents of this article cannot be unlocked due to this publisher's medium settings.</p>
