@@ -2,7 +2,7 @@ import {urlWithoutQueryParams} from './utils';
 
 const urlsList = [
   'https://medium.com/*',
-  'https://www.google.com/*',
+  'https://www.google.com/search/*',
   'https://towardsdatascience.com/*',
   'https://hackernoon.com/*',
   'https://medium.freecodecamp.org/*',
