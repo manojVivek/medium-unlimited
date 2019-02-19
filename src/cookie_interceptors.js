@@ -26,8 +26,16 @@ export default function intercept(inProgressUrls) {
     {
       urls: urlsList,
     },
-    ['requestHeaders', 'blocking']
+    getBeforeSendExtraInfoSpec()
   );
+
+  function getBeforeSendExtraInfoSpec() {
+    const extraInfoSpec = ['blocking', 'requestHeaders'];
+    if (chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS')) {
+      extraInfoSpec.push('extraHeaders');
+    }
+    return extraInfoSpec
+  }
 
   function onHeadersReceived(details) {
     if (details.responseHeaders && shouldIntercept(details)) {
@@ -42,8 +50,17 @@ export default function intercept(inProgressUrls) {
     {
       urls: urlsList,
     },
-    ['responseHeaders', 'blocking']
+    getHeadersReceivedExtraInfoSpec()
   );
+
+  function getHeadersReceivedExtraInfoSpec() {
+    const extraInfoSpec = ['blocking', 'responseHeaders'];
+    if (chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS')) {
+      extraInfoSpec.push('extraHeaders');
+    }
+    return extraInfoSpec
+  }
+
 
   function removeHeader(headers, headerToRemove) {
     return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
