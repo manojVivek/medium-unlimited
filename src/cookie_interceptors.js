@@ -8,6 +8,10 @@ const urlsList = [
   'https://medium.freecodecamp.org/*',
   'https://psiloveyou.xyz/*',
   'https://betterhumans.coach.me/*',
+  'https://theascent.pub/*',
+  'https://onezero.medium.com/*',
+  'https://humanparts.medium.com/*',
+  'https://medium.mybridge.co/*',
 ];
 
 export default function intercept(inProgressUrls) {
