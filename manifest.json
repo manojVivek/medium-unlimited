@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
@@ -15,14 +15,13 @@
     {
       "matches": [
         "https://medium.com/*",
+        "https://*.medium.com/*",
         "https://towardsdatascience.com/*",
         "https://hackernoon.com/*",
         "https://medium.freecodecamp.org/*",
         "https://psiloveyou.xyz/*",
         "https://betterhumans.coach.me/*",
         "https://theascent.pub/*",
-        "https://onezero.medium.com/*",
-        "https://humanparts.medium.com/*",
         "https://medium.mybridge.co/*"
       ],
       "js": ["main.bundle.js"]
@@ -45,8 +44,7 @@
     "https://psiloveyou.xyz/*",
     "https://betterhumans.coach.me/*",
     "https://theascent.pub/*",
-    "https://onezero.medium.com/*",
-    "https://humanparts.medium.com/*",
+    "https://*.medium.com/*",
     "https://medium.mybridge.co/*"
   ],
   "web_accessible_resources": ["static/*"]
