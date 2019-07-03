@@ -96,11 +96,48 @@ function isValidArticleUrl(url) {
   );
 }
 
+function processImageTags(sections) {
+  for (const section of sections) {
+    const imgs = section.getElementsByTagName('img');
+    for (const img of imgs) {
+      if (
+        !img.src &&
+        img.nextSibling &&
+        img.nextSibling.tagName === 'NOSCRIPT'
+      ) {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = img.nextSibling.innerHTML;
+        img.parentNode.replaceChild(tempDiv.children[0], img);
+      }
+    }
+  }
+  return sections;
+}
+
+function newArticleExtraction(doc) {
+  const sections = processImageTags(
+    doc.getElementsByTagName('article')[0].children[2].children
+  );
+  const styles = doc.getElementsByTagName('style');
+  const articleElements = [
+    ...Array.from(styles),
+    ...Array.from(sections),
+  ];
+  return articleElements;
+}
+
 function extractArticleContent(doc) {
+  let articleElements = doc.getElementsByClassName('postArticle-content');
+  if (articleElements.length === 0) {
+    articleElements = newArticleExtraction(doc);
+  }
   const content = Array.from(
-    doc.getElementsByClassName('postArticle-content')
+    articleElements
   ).reduce(
-    (accumulator, section) => accumulator.appendChild(section),
+    (accumulator, section) => {
+      accumulator.appendChild(section);
+      return accumulator;
+    },
     document.createElement('div')
   );
   return new XMLSerializer().serializeToString(content);
