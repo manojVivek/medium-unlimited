@@ -13,6 +13,7 @@ const floatingButtonParent = document.createElement('div');
 floatingButtonParent.setAttribute('id', floatingContentDivId);
 document.body.appendChild(floatingButtonParent);
 let loaderElement;
+let reloading = false;
 function registerListeners() {
   _attachFloatingButton();
   setInterval(unlockIfHidden, 1500);
@@ -27,7 +28,10 @@ function unlockIfHidden() {
   }
   log('Content is hidden');
   _showLoader();
-  window.location.reload();
+  if (!reloading) {
+    window.location.reload();
+    reloading = true;
+  }
   return;
   //Trying out a temporary solution before removing the old one.
   log('Sending message to fetch', document.location.href);
