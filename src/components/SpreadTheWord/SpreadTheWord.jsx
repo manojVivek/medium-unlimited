@@ -35,12 +35,12 @@ class SpreadTheWord extends React.Component {
   }
 
   _getShareContent = () => {
-    return 'Read medium.com Membership articles for free. Use this chrome extension - ';
+    return 'Read medium.com Membership articles for free. Use this browser extension - ';
   };
 
   _getShareUrl = source => {
     const url =
-      'https://chrome.google.com/webstore/detail/eipfkfmeeebeehnkhmmgneiopemjamej';
+      'https://github.com/manojVivek/medium-unlimited';
     if (source) {
       return url + '?source=' + source;
     }

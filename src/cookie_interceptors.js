@@ -1,4 +1,4 @@
-import {urlWithoutQueryParams} from './utils';
+import {urlWithoutQueryParams, getTwitterReferer} from './utils';
 
 const urlsList = [
   'https://medium.com/*',
@@ -15,9 +15,9 @@ const urlsList = [
 
 export default function intercept(inProgressUrls) {
   function onBeforeSendHeaders(details) {
-    if (details.requestHeaders && shouldIntercept(details)) {
-      let newHeaders = removeHeader(details.requestHeaders, 'cookie');
-      newHeaders = removeHeader(newHeaders, 'origin');
+    if (details.requestHeaders /*&& shouldIntercept(details)*/) {
+      let newHeaders = removeHeader(details.requestHeaders, 'referer');
+      newHeaders = addHeader(newHeaders, 'Referer', getTwitterReferer());
 
       return {requestHeaders: newHeaders};
     }
@@ -67,6 +67,12 @@ export default function intercept(inProgressUrls) {
 
   function removeHeader(headers, headerToRemove) {
     return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
+  }
+
+
+  function addHeader(headers, name, value) {
+   headers.push({name, value});
+    return headers;
   }
 
   function shouldIntercept(details) {

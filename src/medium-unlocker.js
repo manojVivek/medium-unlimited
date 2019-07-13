@@ -12,19 +12,10 @@ const floatingContentDivId = 'mediumUnlimited';
 const floatingButtonParent = document.createElement('div');
 floatingButtonParent.setAttribute('id', floatingContentDivId);
 document.body.appendChild(floatingButtonParent);
-let previousUrl;
 let loaderElement;
 function registerListeners() {
-  /* Not the best way to detect url change but wrapping "history.pushState" or
-    "history.replaceState" is not working. Needs debugging.
-  */
-  setInterval(() => {
-    if (window.location.href != previousUrl) {
-      previousUrl = window.location.href;
-      _removeFloatingButton();
-    }
-    unlockIfHidden();
-  }, 1500);
+  _attachFloatingButton();
+  setInterval(unlockIfHidden, 1500);
 }
 
 registerListeners();
@@ -36,6 +27,9 @@ function unlockIfHidden() {
   }
   log('Content is hidden');
   _showLoader();
+  window.location.reload();
+  return;
+  //Trying out a temporary solution before removing the old one.
   log('Sending message to fetch', document.location.href);
   chrome.runtime.sendMessage(
     {type: FETCH_CONTENT_MESSAGE, url: document.location.href},
@@ -127,14 +121,20 @@ function _showLoader() {
     </div>
   `;
   loaderElement.src = loaderUrl;
-  const membershipPromtElement = document.getElementsByClassName(
+  let membershipPromtElement = document.getElementsByClassName(
     MEMBERSHIP_PROMPT_CLASSNAME
   )[0];
+  if (!membershipPromtElement) {
+    const article = document.getElementsByTagName('article')[0];
+    membershipPromtElement = article.nextSibling.nextSibling;
+  }
   membershipPromtElement.parentElement.replaceChild(
     loaderElement,
     membershipPromtElement
   );
-  document.getElementsByTagName('footer')[0].style = 'margin-top: 100px;';
+  if (document.getElementsByTagName('footer')[0]) {
+    document.getElementsByTagName('footer')[0].style = 'margin-top: 100px;';
+  }
   return loaderElement;
 }
 

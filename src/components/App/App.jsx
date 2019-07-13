@@ -84,7 +84,7 @@ class App extends React.Component {
           })}
         >
           <span className={classNames(styles.nowrap)}>
-            Membership Article Unlocked!
+            Medium-Unlimited
           </span>
         </div>
       </div>
