@@ -24,7 +24,8 @@
         "https://codeburst.io/*",
         "https://theascent.pub/*",
         "https://medium.mybridge.co/*",
-        "https://uxdesign.cc/*"
+        "https://uxdesign.cc/*",
+        "https://levelup.gitconnected.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -45,10 +46,12 @@
     "https://medium.freecodecamp.org/*",
     "https://psiloveyou.xyz/*",
     "https://betterhumans.coach.me/*",
+    "https://codeburst.io/*",
     "https://theascent.pub/*",
     "https://*.medium.com/*",
     "https://medium.mybridge.co/*",
-    "https://uxdesign.cc/*"
+    "https://uxdesign.cc/*",
+    "https://levelup.gitconnected.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
