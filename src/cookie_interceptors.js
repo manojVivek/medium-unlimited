@@ -11,6 +11,7 @@ const urlsList = [
   'https://theascent.pub/*',
   'https://*.medium.com/*',
   'https://medium.mybridge.co/*',
+  'https://codeburst.io/*',
 ];
 
 export default function intercept(inProgressUrls) {
