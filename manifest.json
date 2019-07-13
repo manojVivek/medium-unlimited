@@ -23,7 +23,8 @@
         "https://betterhumans.coach.me/*",
         "https://codeburst.io/*",
         "https://theascent.pub/*",
-        "https://medium.mybridge.co/*"
+        "https://medium.mybridge.co/*",
+        "https://uxdesign.cc/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -46,7 +47,8 @@
     "https://betterhumans.coach.me/*",
     "https://theascent.pub/*",
     "https://*.medium.com/*",
-    "https://medium.mybridge.co/*"
+    "https://medium.mybridge.co/*",
+    "https://uxdesign.cc/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
