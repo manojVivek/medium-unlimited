@@ -14,7 +14,7 @@ const urlsList = [
   'https://medium.mybridge.co/*',
   'https://uxdesign.cc/*',
   'https://levelup.gitconnected.com/*',
-  
+  'https://itnext.io/*',
 ];
 
 export default function intercept(inProgressUrls) {
