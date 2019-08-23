@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.4.8",
+  "version": "1.4.9",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
@@ -27,7 +27,8 @@
         "https://uxdesign.cc/*",
         "https://levelup.gitconnected.com/*",
         "https://itnext.io/*",
-        "https://entrepreneurshandbook.co/*"
+        "https://entrepreneurshandbook.co/*",
+        "https://proandroiddev.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -55,7 +56,8 @@
     "https://uxdesign.cc/*",
     "https://levelup.gitconnected.com/*",
     "https://itnext.io/*",
-    "https://entrepreneurshandbook.co/*"
+    "https://entrepreneurshandbook.co/*",
+    "https://proandroiddev.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

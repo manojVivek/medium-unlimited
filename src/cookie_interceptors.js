@@ -16,6 +16,7 @@ const urlsList = [
   'https://levelup.gitconnected.com/*',
   'https://itnext.io/*',
   'https://entrepreneurshandbook.co/*',
+  'https://proandroiddev.com/*',
 ];
 
 export default function intercept(inProgressUrls) {
