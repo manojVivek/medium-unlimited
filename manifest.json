@@ -29,7 +29,8 @@
         "https://itnext.io/*",
         "https://entrepreneurshandbook.co/*",
         "https://proandroiddev.com/*",
-        "https://blog.prototypr.io/*"
+        "https://blog.prototypr.io/*",
+        "https://thebolditalic.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -59,7 +60,8 @@
     "https://itnext.io/*",
     "https://entrepreneurshandbook.co/*",
     "https://proandroiddev.com/*",
-    "https://blog.prototypr.io/*"
+    "https://blog.prototypr.io/*",
+    "https://thebolditalic.com/"
   ],
   "web_accessible_resources": ["static/*"]
 }
