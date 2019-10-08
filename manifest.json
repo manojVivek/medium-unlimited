@@ -30,7 +30,8 @@
         "https://entrepreneurshandbook.co/*",
         "https://proandroiddev.com/*",
         "https://blog.prototypr.io/*",
-        "https://thebolditalic.com/*"
+        "https://thebolditalic.com/*",
+        "https://blog.usejournal.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -61,7 +62,8 @@
     "https://entrepreneurshandbook.co/*",
     "https://proandroiddev.com/*",
     "https://blog.prototypr.io/*",
-    "https://thebolditalic.com/"
+    "https://thebolditalic.com/*",
+    "https://blog.usejournal.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
