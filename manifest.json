@@ -31,7 +31,8 @@
         "https://proandroiddev.com/*",
         "https://blog.prototypr.io/*",
         "https://thebolditalic.com/*",
-        "https://blog.usejournal.com/*"
+        "https://blog.usejournal.com/*",
+        "https://blog.angularindepth.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -63,7 +64,8 @@
     "https://proandroiddev.com/*",
     "https://blog.prototypr.io/*",
     "https://thebolditalic.com/*",
-    "https://blog.usejournal.com/*"
+    "https://blog.usejournal.com/*",
+    "https://blog.angularindepth.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

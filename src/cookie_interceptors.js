@@ -19,7 +19,8 @@ const urlsList = [
   'https://proandroiddev.com/*',
   'https://blog.prototypr.io/*',
   'https://thebolditalic.com/*',
-  'https://blog.usejournal.com/*'
+  'https://blog.usejournal.com/*',
+  'https://blog.angularindepth.com/*'
 ];
 
 export default function intercept(inProgressUrls) {
