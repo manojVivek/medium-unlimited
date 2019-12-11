@@ -32,7 +32,8 @@
         "https://blog.prototypr.io/*",
         "https://thebolditalic.com/*",
         "https://blog.usejournal.com/*",
-        "https://blog.angularindepth.com/*"
+        "https://blog.angularindepth.com/*",
+        "https://uxplanet.org/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -64,7 +65,8 @@
     "https://blog.prototypr.io/*",
     "https://thebolditalic.com/*",
     "https://blog.usejournal.com/*",
-    "https://blog.angularindepth.com/*"
+    "https://blog.angularindepth.com/*",
+    "https://uxplanet.org/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
