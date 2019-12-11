@@ -22,6 +22,8 @@ const urlsList = [
   'https://blog.usejournal.com/*',
   'https://blog.angularindepth.com/*',
   'https://uxplanet.org/*',
+  'https://instagram-engineering.com/*',
+  'https://calia.me/*',
 ];
 
 export default function intercept(inProgressUrls) {
