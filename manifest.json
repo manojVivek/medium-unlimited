@@ -36,6 +36,7 @@
         "https://uxplanet.org/*",
         "https://instagram-engineering.com/*",
         "https://calia.me/*"
+        "https://productcoalition.com/*"
       ],
       "js": ["main.bundle.js"]
     }
