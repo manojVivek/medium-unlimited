@@ -26,6 +26,7 @@ const urlsList = [
   'https://calia.me/*',
   'https://productcoalition.com/*',
   'https://engineering.opsgenie.com/*',
+  'https://android.jlelse.eu/*',
 ];
 
 export default function intercept(inProgressUrls) {

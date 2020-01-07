@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.4.14",
+  "version": "1.4.15",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
@@ -37,7 +37,8 @@
         "https://instagram-engineering.com/*",
         "https://calia.me/*",
         "https://productcoalition.com/*",
-        "https://engineering.opsgenie.com/*"
+        "https://engineering.opsgenie.com/*",
+        "https://android.jlelse.eu/*"
       ],
       "js": ["main.bundle.js"]
     }
