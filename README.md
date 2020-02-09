@@ -5,7 +5,7 @@ Code repository for the browser extension to unlock the articles behind the medi
 
 Try the production version of the extension here: 
 
-For Chrome: https://medium-unlimited.ml/download/
+For Chrome: https://manojvivek.github.io/medium-unlimited/download/
 
 For Firefox: https://addons.mozilla.org/en-US/firefox/addon/medium-unlimited-read-for-free
 
