@@ -1,0 +1,9 @@
+[default]
+bears = SpaceConsistencyBear
+files = **.(md|html|css|js)
+use_spaces = yes
+
+[markdown]
+bears = MarkdownBear, SpaceConsistencyBear
+files = **.md
+use_spaces = yeah
