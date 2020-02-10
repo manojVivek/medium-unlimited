@@ -15,8 +15,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
   <meta name="description" content="Read medium.com premium articles without subscription!">
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic|Source+Sans+Pro:400,700,200,300|Josefin+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
@@ -24,6 +22,20 @@
   <link rel="stylesheet" href="/medium-unlimited/css/style.css">
   <link rel="canonical" href="http://localhost:4000/medium-unlimited/download/">
   <link rel="alternate" type="application/rss+xml" title="Medium Unlimited" href="http://localhost:4000/medium-unlimited/feed.xml">
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+        var downloadButton = document.getElementById('downloadButton')
+        if (!downloadButton) {
+          return;
+        }
+        downloadButton.addEventListener('click',function(){
+          if(!gtag) {
+            return;
+          }
+          gtag('event', 'download');
+        },false);
+    },false);
+  </script>
 </head>
 
 
@@ -79,7 +91,7 @@
 <ol>
   <li><p>Open the Extension Manager by following: <pre>Kebab menu(⋮) -&gt; More Tools -&gt; Extensions</pre></p></li>
   <li><p>If the developer mode is not turned on, turn it on by clicking the toggle in the top right corner</p></li>
-  <li><p>Download the extension file from <a download="" href="/medium-unlimited-1.4.15.zip">here</a>.</p></li>
+  <li><p>Download the extension file from <a id="downloadButton" download="" href="/medium-unlimited/medium-unlimited-1.4.15.zip">here</a>.</p></li>
   <li><p>Extract the downloaded .zip file and note the extracted path</p></li>
   <li><p>Now click on <strong>Load unpacked</strong> button on the top left and select the extracted folder</p></li>
   <li><p>You are all-set now, head over to <a href="https://medium.com">medium.com</a> and enjoy the articles!</p></li>
