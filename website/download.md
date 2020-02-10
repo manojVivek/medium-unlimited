@@ -13,7 +13,7 @@ permalink: /download/
 <ol>
   <li><p>Open the Extension Manager by following: <pre>Kebab menu(⋮) -> More Tools -> Extensions</pre></p></li>
   <li><p>If the developer mode is not turned on, turn it on by clicking the toggle in the top right corner</p></li>
-  <li><p>Download the extension file from <a download href="/medium-unlimited-1.4.15.zip">here</a>.</p></li>
+  <li><p>Download the extension file from <a id="downloadButton" download href="/medium-unlimited/medium-unlimited-1.4.15.zip">here</a>.</p></li>
   <li><p>Extract the downloaded .zip file and note the extracted path</p></li>
   <li><p>Now click on <strong>Load unpacked</strong> button on the top left and select the extracted folder</p></li>
   <li><p>You are all-set now, head over to <a href="https://medium.com">medium.com</a> and enjoy the articles!</p></li>

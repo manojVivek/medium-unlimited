@@ -19,4 +19,18 @@
   <link rel="stylesheet" href="{{ "/css/style.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded',function(){
+        var downloadButton = document.getElementById('downloadButton')
+        if (!downloadButton) {
+          return;
+        }
+        downloadButton.addEventListener('click',function(){
+          if(!gtag) {
+            return;
+          }
+          gtag('event', 'download');
+        },false);
+    },false);
+  </script>
 </head>
