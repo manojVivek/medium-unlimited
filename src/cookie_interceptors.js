@@ -21,6 +21,7 @@ const urlsList = [
   'https://thebolditalic.com/*',
   'https://blog.usejournal.com/*',
   'https://blog.angularindepth.com/*',
+  'https://blog.bitsrc.io/*',
   'https://uxplanet.org/*',
   'https://instagram-engineering.com/*',
   'https://calia.me/*',
