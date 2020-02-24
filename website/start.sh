@@ -4,6 +4,6 @@
 #docker run --rm   --volume="$PWD:/srv/jekyll"   -it jekyll/jekyll   jekyll build --watch
 
 
-export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
+#export PATH=$HOME/.gem/ruby/2.3.0/bin:$PATH
 
 jekyll serve

@@ -24,13 +24,16 @@ const urlsList = [
   'https://blog.bitsrc.io/*',
   'https://blog.devartis.com/*',
   'https://blog.maddevs.io/*',
+  'https://blog.getambassador.io/*',
   'https://uxplanet.org/*',
   'https://instagram-engineering.com/*',
   'https://calia.me/*',
   'https://productcoalition.com/*',
   'https://engineering.opsgenie.com/*',
   'https://android.jlelse.eu/*',
-  'https://robinhood.engineering/*'
+  'https://robinhood.engineering/*',
+  'https://blog.hipolabs.com/*',
+  'https://ux.shopify.com/*',
 ];
 
 export default function intercept(inProgressUrls) {

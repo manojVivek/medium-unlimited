@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.4.15",
+  "version": "1.4.17",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
@@ -43,7 +43,9 @@
         "https://productcoalition.com/*",
         "https://engineering.opsgenie.com/*",
         "https://android.jlelse.eu/*",
-        "https://robinhood.engineering/*"
+        "https://robinhood.engineering/*",
+        "https://blog.hipolabs.com/*",
+        "https://ux.shopify.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -79,8 +81,16 @@
     "https://blog.bitsrc.io/*",
     "https://blog.devartis.com/*",
     "https://blog.maddevs.io/*",
+    "https://blog.getambassador.io/*",
     "https://uxplanet.org/*",
-    "https://robinhood.engineering/*"
+    "https://instagram-engineering.com/*",
+    "https://calia.me/*",
+    "https://productcoalition.com/*",
+    "https://engineering.opsgenie.com/*",
+    "https://android.jlelse.eu/*",
+    "https://robinhood.engineering/*",
+    "https://blog.hipolabs.com/*",
+    "https://ux.shopify.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

@@ -1,6 +1,6 @@
 const config = {
   amplitude: {
-    api_key: 'API_KEY',
+    api_key: '<API-KEY>',
   },
 };
 
