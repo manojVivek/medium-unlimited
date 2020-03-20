@@ -41,7 +41,8 @@
         "https://calia.me/*",
         "https://productcoalition.com/*",
         "https://engineering.opsgenie.com/*",
-        "https://android.jlelse.eu/*"
+        "https://android.jlelse.eu/*",
+        "https://robinhood.engineering/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -77,7 +78,8 @@
     "https://blog.bitsrc.io/*",
     "https://blog.devartis.com/*",
     "https://blog.maddevs.io/*",
-    "https://uxplanet.org/*"
+    "https://uxplanet.org/*",
+    "https://robinhood.engineering/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

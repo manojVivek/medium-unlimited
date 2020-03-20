@@ -30,6 +30,7 @@ const urlsList = [
   'https://productcoalition.com/*',
   'https://engineering.opsgenie.com/*',
   'https://android.jlelse.eu/*',
+  'https://robinhood.engineering/*'
 ];
 
 export default function intercept(inProgressUrls) {
