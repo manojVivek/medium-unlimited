@@ -4,18 +4,10 @@ import {
   MEMBERSHIP_PROMPT_CLASSNAME,
   FETCH_CONTENT_MESSAGE,
 } from './constants';
-import ReactDOM from 'react-dom';
-import React from 'react';
-import App from './components/App/App.jsx';
 
-const floatingContentDivId = 'mediumUnlimited';
-const floatingButtonParent = document.createElement('div');
-floatingButtonParent.setAttribute('id', floatingContentDivId);
-document.body.appendChild(floatingButtonParent);
 let loaderElement;
 let reloading = false;
 function registerListeners() {
-  _attachFloatingButton();
   setInterval(unlockIfHidden, 1500);
 }
 
@@ -41,17 +33,8 @@ function unlockIfHidden() {
       log('Received response for fetchContent');
       _setContent(response);
       _hideLoader();
-      _attachFloatingButton();
     }
   );
-}
-
-function _attachFloatingButton() {
-  ReactDOM.render(<App />, floatingButtonParent);
-}
-
-function _removeFloatingButton() {
-  ReactDOM.unmountComponentAtNode(floatingButtonParent);
 }
 
 function _setContent({content, hadMembershipPrompt, externalUrl}) {
