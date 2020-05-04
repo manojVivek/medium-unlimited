@@ -1,4 +1,4 @@
-import {urlWithoutQueryParams, getTwitterReferer} from './utils';
+import {getTwitterReferer} from './utils';
 
 const urlsList = [
   'https://medium.com/*',
@@ -36,9 +36,9 @@ const urlsList = [
   'https://ux.shopify.com/*',
 ];
 
-export default function intercept(inProgressUrls) {
+export default function intercept() {
   function onBeforeSendHeaders(details) {
-    if (details.requestHeaders /*&& shouldIntercept(details)*/) {
+    if (details.requestHeaders) {
       let newHeaders = removeHeader(details.requestHeaders, 'referer');
       newHeaders = addHeader(newHeaders, 'Referer', getTwitterReferer());
 
@@ -63,47 +63,12 @@ export default function intercept(inProgressUrls) {
     return extraInfoSpec
   }
 
-  function onHeadersReceived(details) {
-    if (details.responseHeaders && shouldIntercept(details)) {
-      const newHeaders = removeHeader(details.responseHeaders, 'set-cookie');
-      return {responseHeaders: newHeaders};
-    }
-    return {responseHeaders: details.responseHeaders};
-  }
-
-  chrome.webRequest.onHeadersReceived.addListener(
-    onHeadersReceived,
-    {
-      urls: urlsList,
-    },
-    getHeadersReceivedExtraInfoSpec()
-  );
-
-  function getHeadersReceivedExtraInfoSpec() {
-    const extraInfoSpec = ['blocking', 'responseHeaders'];
-    if (chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS')) {
-      extraInfoSpec.push('extraHeaders');
-    }
-    return extraInfoSpec
-  }
-
-
   function removeHeader(headers, headerToRemove) {
     return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
   }
 
-
   function addHeader(headers, name, value) {
    headers.push({name, value});
     return headers;
-  }
-
-  function shouldIntercept(details) {
-    return (
-      inProgressUrls[urlWithoutQueryParams(details.url)] ||
-      details.url.startsWith(
-        'https://medium.com/m/global-identity?redirectUrl='
-      )
-    );
   }
 }
