@@ -9,6 +9,7 @@ For Chrome: https://manojvivek.github.io/medium-unlimited/download/
 
 For Firefox: https://addons.mozilla.org/en-US/firefox/addon/medium-unlimited-read-for-free
 
+For Android (app): https://github.com/firefinchdev/medium-unlimited-android
 
 # Development
 
