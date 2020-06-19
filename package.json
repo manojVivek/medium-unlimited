@@ -10,13 +10,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "amplitude": "^3.5.0",
-    "classnames": "^2.2.6",
-    "gh-pages": "^2.2.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
@@ -27,6 +21,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^1.0.0",
+    "gh-pages": "^3.0.0",
     "style-loader": "^0.23.0",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.1.0"
