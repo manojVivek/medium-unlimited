@@ -64,7 +64,7 @@ export default function intercept() {
   }
 
   function removeHeader(headers, headerToRemove) {
-    return headers.filter(({name}) => name.toLowerCase() != headerToRemove);
+    return headers.filter(({name}) => name.toLowerCase() !== headerToRemove);
   }
 
   function addHeader(headers, name, value) {

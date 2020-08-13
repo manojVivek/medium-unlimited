@@ -1,5 +1,5 @@
 import config from './config';
-import {setUserId, getUserId} from './storage';
+import {getUserId, setUserId} from './storage';
 import {track} from './analytics';
 import {MEMBERSHIP_PROMPT_CLASSNAME} from './constants';
 
@@ -19,7 +19,7 @@ export function amplitudeApiKey() {
 
 export function init() {
   chrome.runtime.setUninstallURL('https://manojvivek.typeform.com/to/c0VaBs');
-  chrome.runtime.onInstalled.addListener(() => {
+  chrome.runtime.onInstalled.addEventListener(() => {
     if (!getUserId()) {
       setUserId(new Date().getTime().toString());
       track('INSTALLED');

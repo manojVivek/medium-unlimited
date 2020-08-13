@@ -16,7 +16,7 @@ function _getAmplitudeClient() {
     }
     chrome.runtime.sendMessage({type: FETCH_USER_ID}, response => {
       log('Received response for userId', response);
-      if (response.status != 'SUCCESS') {
+      if (response.status !== 'SUCCESS') {
         return reject(response);
       }
       client = _createClient(response.userId);
