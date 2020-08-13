@@ -19,7 +19,7 @@ export function amplitudeApiKey() {
 
 export function init() {
   chrome.runtime.setUninstallURL('https://manojvivek.typeform.com/to/c0VaBs');
-  chrome.runtime.onInstalled.addEventListener(() => {
+  chrome.runtime.onInstalled.addListener(() => {
     if (!getUserId()) {
       setUserId(new Date().getTime().toString());
       track('INSTALLED');
