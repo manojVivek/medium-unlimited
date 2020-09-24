@@ -45,7 +45,8 @@
         "https://android.jlelse.eu/*",
         "https://robinhood.engineering/*",
         "https://blog.hipolabs.com/*",
-        "https://ux.shopify.com/*"
+        "https://ux.shopify.com/*",
+        "https://tech.olx.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -90,7 +91,8 @@
     "https://android.jlelse.eu/*",
     "https://robinhood.engineering/*",
     "https://blog.hipolabs.com/*",
-    "https://ux.shopify.com/*"
+    "https://ux.shopify.com/*",
+    "https://tech.olx.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
