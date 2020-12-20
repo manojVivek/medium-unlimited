@@ -45,7 +45,19 @@
         "https://android.jlelse.eu/*",
         "https://robinhood.engineering/*",
         "https://blog.hipolabs.com/*",
-        "https://ux.shopify.com/*"
+        "https://ux.shopify.com/*",
+        "https://engineering.talkdesk.com/*",
+        "https://blog.codegiant.io/*",
+        "https://tech.olx.com/*",
+        "https://netflixtechblog.com/*",
+        "https://hackingandslacking.com/*",
+        "https://blog.kotlin-academy.com/*",
+        "https://blog.securityevaluators.com/*",
+        "https://blog.kubernauts.io/*",
+        "https://blog.coffeeapplied.com/*",
+        "https://unbounded.io/*",
+        "https://writingcooperative.com/*",
+        "https://blog.echobind.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -90,7 +102,19 @@
     "https://android.jlelse.eu/*",
     "https://robinhood.engineering/*",
     "https://blog.hipolabs.com/*",
-    "https://ux.shopify.com/*"
+    "https://ux.shopify.com/*",
+    "https://engineering.talkdesk.com/*",
+    "https://blog.codegiant.io/*",
+    "https://tech.olx.com/*",
+    "https://netflixtechblog.com/*",
+    "https://hackingandslacking.com/*",
+    "https://blog.kotlin-academy.com/*",
+    "https://blog.securityevaluators.com/*",
+    "https://blog.kubernauts.io/*",
+    "https://blog.coffeeapplied.com/*",
+    "https://unbounded.io/*",
+    "https://writingcooperative.com/*",
+    "https://blog.echobind.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
