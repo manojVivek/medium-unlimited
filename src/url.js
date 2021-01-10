@@ -33,7 +33,7 @@ const urlsList = [
     'https://blog.hipolabs.com/*',
     'https://ux.shopify.com/*',
     'https://engineering.talkdesk.com/*',
-    "https://blog.codegiant.io",
+    "https://blog.codegiant.io/*",
     "https://tech.olx.com/*",
     "https://netflixtechblog.com/*",
     "https://hackingandslacking.com/*",
