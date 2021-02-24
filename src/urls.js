@@ -43,7 +43,9 @@ const urlsList = [
     "https://blog.coffeeapplied.com/*",
     "https://unbounded.io/*",
     "https://writingcooperative.com/*",
-    "https://*.plainenglish.io/*"
+    "https://*.plainenglish.io/*",
+    "https://*.betterprogramming.pub/*",
+    "https://blog.doit-intl.com/*"
 ];
 
 export default urlsList;

@@ -58,7 +58,9 @@
         "https://unbounded.io/*",
         "https://writingcooperative.com/*",
         "https://blog.echobind.com/*",
-        "https://*.plainenglish.io/*"
+        "https://*.plainenglish.io/*",
+        "https://*.betterprogramming.pub/*",
+        "https://blog.doit-intl.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -116,7 +118,9 @@
     "https://unbounded.io/*",
     "https://writingcooperative.com/*",
     "https://blog.echobind.com/*",
-    "https://*.plainenglish.io/*"
+    "https://*.plainenglish.io/*",
+    "https://*.betterprogramming.pub/*",
+    "https://blog.doit-intl.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
