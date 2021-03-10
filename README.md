@@ -15,9 +15,9 @@ Try the production version of the extension here:
 
 ---
 
-**Update**
+## Update/Workaround
 
-| :warning: **WARNING: The problem lies due to chrome's latest updates with referer header. I have tried the chrome extension in opera browser with 72.x and it's working fine. ** |
+| The problem lies due to chrome's latest updates with referer header. I have tried the chrome extension in opera browser with 72.x and it's working fine. |
 | --- |
 
 - Download the opera from https://download3.operacdn.com/pub/opera/desktop/72.0.3815.400
