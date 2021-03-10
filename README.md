@@ -16,7 +16,7 @@ Try the production version of the extension here:
 
 ## Alternative
 
-If you desparately need the medium articles, try using this alternative. You won't be able to clap the article and ask questions. Otherwise if you just want to read, it works just fine.
+If you desperately need the medium articles, try using this alternative. You won't be able to clap the article and ask questions. Otherwise if you just want to read, it works just fine.
 https://chrome.google.com/webstore/detail/medium-hackd/fjjfjlecfadomdpeohehfhnbekekdild
 
 ---
