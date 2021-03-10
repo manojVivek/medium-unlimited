@@ -1,0 +1,55 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Release asset workflow
+
+jobs:
+  release-asset:
+    name: Release asset
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+      
+      - name: Install yarn
+        run: npm install -g yarn
+      
+      - name: Install Packages
+        run: yarn install
+      
+      - name: Build project
+        run: yarn run build
+      
+      - name: Create the archive
+        run: |
+          cd dist
+          zip -r ../medium-unlimited.zip .
+          cd ..
+      
+      - name: Create a new release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: build-${{ github.run_number }}
+          release_name: Build-${{ github.run_number }}
+          draft: false
+          prerelease: false
+      
+      - name: Upload the asset to the release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./medium-unlimited.zip
+          asset_name: ${{ github.event.repository.name }}-build-{{ github.run_number }}.zip
+          asset_content_type: application/zip
