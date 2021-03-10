@@ -12,6 +12,10 @@ Try the production version of the extension here:
 - For Firefox: https://addons.mozilla.org/en-US/firefox/addon/medium-unlimited-read-for-free.
 
 **If someone knows how to build the firefox extension, please add a PR to add assets to the release section.** 
+---
+
+Alternative: If you desparately need the medium articles, try using this alternative. You won't be able to clap the article and ask questions. Otherwise if you just want to read, it works just fine.
+https://chrome.google.com/webstore/detail/medium-hackd/fjjfjlecfadomdpeohehfhnbekekdild
 
 ---
 
