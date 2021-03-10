@@ -17,16 +17,6 @@ export function amplitudeApiKey() {
   return 'test_api_key';
 }
 
-export function init() {
-  chrome.runtime.setUninstallURL('https://manojvivek.typeform.com/to/c0VaBs');
-  chrome.runtime.onInstalled.addListener(() => {
-    if (!getUserId()) {
-      setUserId(new Date().getTime().toString());
-      track('INSTALLED');
-    }
-  });
-}
-
 export function urlWithoutQueryParams(url) {
   if (!url) {
     return '';
