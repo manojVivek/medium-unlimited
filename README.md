@@ -15,16 +15,6 @@ Try the production version of the extension here:
 
 ---
 
-## Update/Workaround
-
-| The problem lies due to chrome's latest updates with referer header. I have tried the chrome extension in opera browser with 72.x and it's working fine. |
-| --- |
-
-- Download the opera from https://download3.operacdn.com/pub/opera/desktop/72.0.3815.400
-- Follow the Chrome extension installation procedure to install the extension in opera.
-
----
-
 ## Development
 
 Run the following to build the code:
