@@ -3,6 +3,8 @@
 | :warning: **WARNING: A few of the added domains seem like are not working. Patches will be added as soon as someone finds a solution. ** |
 | --- |
 
+---
+
 Code repository for the browser extension to unlock the articles behind the medium.com membership paywall.
 
 Try the production version of the extension here:
@@ -10,6 +12,16 @@ Try the production version of the extension here:
 - For Firefox: https://addons.mozilla.org/en-US/firefox/addon/medium-unlimited-read-for-free.
 
 **If someone knows how to build the firefox extension, please add a PR to add assets to the release section.** 
+
+---
+
+**Update**
+
+| :warning: **WARNING: The problem lies due to chrome's latest updates with referer header. I have tried the chrome extension in opera browser with 72.x and it's working fine. ** |
+| --- |
+
+- Download the opera from https://download3.operacdn.com/pub/opera/desktop/72.0.3815.400
+- Follow the Chrome extension installation procedure to install the extension in opera.
 
 ---
 
