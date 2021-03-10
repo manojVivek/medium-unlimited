@@ -51,5 +51,5 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./medium-unlimited.zip
-          asset_name: chrome-build-{{ github.run_number }}.zip # ${{ github.event.repository.name }} - for the project name
+          asset_name: chrome-build-${{ github.run_number }}.zip # ${{ github.event.repository.name }} - for the project name
           asset_content_type: application/zip
