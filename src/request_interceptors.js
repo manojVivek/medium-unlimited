@@ -34,6 +34,20 @@ const urlsList = [
   'https://robinhood.engineering/*',
   'https://blog.hipolabs.com/*',
   'https://ux.shopify.com/*',
+  'https://engineering.talkdesk.com/*',
+  'https://blog.codegiant.io/*',
+  'https://tech.olx.com/*',
+  'https://netflixtechblog.com/*',
+  'https://hackingandslacking.com/*',
+  'https://blog.kotlin-academy.com/*',
+  'https://blog.securityevaluators.com/*',
+  'https://blog.kubernauts.io/*',
+  'https://blog.coffeeapplied.com/*',
+  'https://unbounded.io/*',
+  'https://writingcooperative.com/*',
+  'https://*.plainenglish.io/*',
+  'https://*.betterprogramming.pub/*',
+  'https://blog.doit-intl.com/*'
 ];
 
 export default function intercept() {
