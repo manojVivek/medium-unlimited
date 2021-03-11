@@ -60,7 +60,8 @@
         "https://blog.echobind.com/*",
         "https://*.plainenglish.io/*",
         "https://*.betterprogramming.pub/*",
-        "https://blog.doit-intl.com/*"
+        "https://blog.doit-intl.com/*",
+        "https://eand.co/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -120,7 +121,8 @@
     "https://blog.echobind.com/*",
     "https://*.plainenglish.io/*",
     "https://*.betterprogramming.pub/*",
-    "https://blog.doit-intl.com/*"
+    "https://blog.doit-intl.com/*",
+    "https://eand.co/*"
   ],
   "web_accessible_resources": ["static/*"]
 }

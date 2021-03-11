@@ -47,7 +47,8 @@ const urlsList = [
   'https://writingcooperative.com/*',
   'https://*.plainenglish.io/*',
   'https://*.betterprogramming.pub/*',
-  'https://blog.doit-intl.com/*'
+  'https://blog.doit-intl.com/*',
+  'https://eand.co/*'
 ];
 
 export default function intercept() {
