@@ -1,7 +1,7 @@
 import config from './config';
 import {setUserId, getUserId} from './storage';
 import {track} from './analytics';
-import {MEMBERSHIP_PROMPT_CLASSNAME} from './constants';
+import {MEMBERSHIP_PROMPT_CLASSNAME, MEMBERSHIP_PROMPT_ID} from './constants';
 
 export function log(...messages) {
   if (process.env.NODE_ENV === 'production') {
@@ -38,7 +38,7 @@ function hasMembershipPromptNew(document) {
 
 export function hasMembershipPrompt(document) {
   return (
-    document.getElementsByClassName(MEMBERSHIP_PROMPT_CLASSNAME).length > 0 ||
+    document.getElementById(MEMBERSHIP_PROMPT_ID) ||
     hasMembershipPromptNew(document)
   );
 }
