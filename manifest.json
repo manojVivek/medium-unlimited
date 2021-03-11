@@ -55,7 +55,7 @@
     "48": "static/logo_48.png",
     "128": "static/logo_128.png"
   },
-  "content_security_policy": "script-src 'self'; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "permissions": [
     "webRequest",
     "webRequestBlocking",
