@@ -50,7 +50,6 @@ function unlockIfHidden() {
       return;
     }
   });
-  return;
 }
 
 function restoreScrollPosition() {
