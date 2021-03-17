@@ -1,7 +1,7 @@
 import config from './config';
 import {setUserId, getUserId} from './storage';
 import {track} from './analytics';
-import {MEMBERSHIP_PROMPT_CLASSNAME, MEMBERSHIP_PROMPT_ID} from './constants';
+import {MEMBERSHIP_PROMPT_CLASSNAME, MEMBERSHIP_PROMPT_ID, METERED_CONTENT_CLASSNAME} from './constants';
 
 export function log(...messages) {
   if (process.env.NODE_ENV === 'production') {
@@ -55,4 +55,8 @@ export function hasMembershipPrompt(document) {
 
 export function getTwitterReferer() {
   return `https://t.co/${Math.random().toString(36).slice(2)}`;
+}
+
+export function getMeteredContentElement(doc) {
+  return (doc || document).getElementsByClassName(METERED_CONTENT_CLASSNAME)[0];
 }

@@ -1,15 +1,16 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
 import App from './components/App/App.jsx';
-import { hasMembershipPrompt, log } from './utils.js';
-import { MEMBERSHIP_PROMPT_CLASSNAME, MEMBERSHIP_PROMPT_ID } from './constants.js';
+import { getMeteredContentElement, hasMembershipPrompt, log } from './utils.js';
+import { MEMBERSHIP_PROMPT_ID } from './constants.js';
 
-let previousUrl;
+let previousUrl = window.location.href;
 let loaderElement;
 const floatingContentDivId = 'mediumUnlimited';
 const floatingButtonParent = document.createElement('div');
 floatingButtonParent.setAttribute('id', floatingContentDivId);
 document.body.appendChild(floatingButtonParent);
+let yetToProcess = true;
 function registerListeners() {
   _attachFloatingButton();
   /* Not the best way to detect url change but wrapping "history.pushState" or
@@ -18,7 +19,7 @@ function registerListeners() {
     setInterval(() => {
       if (window.location.href != previousUrl) {
         previousUrl = window.location.href;
-        _removeFloatingButton();
+        window.location.href = window.location.href;
       }
       unlockIfHidden();
     }, 1500);
@@ -29,12 +30,51 @@ function unlockIfHidden() {
     log('Content is open, nothing to do');
     return;
   }
+  if (!yetToProcess) {
+    return;
+  }
+  yetToProcess = false;
   log('Content is hidden');
   _showLoader();
-  window.location.reload();
+  fetch(window.location.href).then(resp => resp.text()).then((resp) => {
+    const html = getHTMLFromText(resp);
+    const articleContent = getMeteredContentElement(html);
+    if (articleContent) {
+      const meteredContentElement = getMeteredContentElement();
+      meteredContentElement.parentElement.replaceChild(articleContent, meteredContentElement);
+      articleContent.style.marginBottom = '5rem';
+      loadBrokenImages();
+      removePaywallSection();
+      _hideLoader();
+      restoreScrollPosition();
+      return;
+    }
+  });
+  return;
 }
 
-registerListeners();
+function restoreScrollPosition() {
+  setTimeout(() => document.getElementsByTagName('h1')[0].scrollIntoView({behavior: 'smooth'}), 100);
+}
+
+function getHTMLFromText(text) {
+  const html = document.createElement('html');
+  html.innerHTML = text;
+  return html;
+}
+
+function removePaywallSection() {
+  const paywallContainer = loaderElement.parentElement.parentElement;
+  const fadeElement = paywallContainer.previousSibling;
+  paywallContainer.remove();
+  fadeElement.remove();
+}
+
+function loadBrokenImages() {
+  Array.from(document.querySelectorAll('img'))
+    .filter(i => !i.hasAttribute('src') && i.nextSibling.tagName === 'NOSCRIPT')
+    .forEach(i => i.outerHTML = i.nextSibling.innerHTML);
+}
 
 function _attachFloatingButton() {
   ReactDOM.render(<App />, floatingButtonParent);
@@ -76,3 +116,5 @@ function _showLoader() {
   }
   return loaderElement;
 }
+
+registerListeners();
