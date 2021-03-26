@@ -65,7 +65,16 @@ function getHTMLFromText(text) {
 function removePaywallSection() {
   const paywallContainer = loaderElement.parentElement.parentElement;
   const fadeElement = paywallContainer.previousSibling;
+  if (!fadeElement || fadeElement.parentElement.getAttribute('id') === 'root') {
+    removePaywallSectionAlternative();
+    return;
+  }
   paywallContainer.remove();
+  fadeElement.remove();
+}
+
+function removePaywallSectionAlternative() {
+  const fadeElement = loaderElement.previousSibling;
   fadeElement.remove();
 }
 
