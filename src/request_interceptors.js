@@ -48,7 +48,10 @@ const urlsList = [
   'https://*.plainenglish.io/*',
   'https://*.betterprogramming.pub/*',
   'https://blog.doit-intl.com/*',
-  'https://eand.co/*'
+  'https://eand.co/*',
+  'https://techuisite.com/*',
+  'https://levelupprogramming.net/*',
+  'https://betterhumans.pub/*'
 ];
 
 export default function intercept() {
