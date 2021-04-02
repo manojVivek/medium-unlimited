@@ -43,9 +43,9 @@ Chrome extension is loaded and ready to use.
         ...
     ]
     ```
-3. Open `request_interceptors.js` and add your website in `urlsList`:
+3. Open `background.bundle.js` and add your website in the list at the end of the file (you can find this list by some existing sites like `https://medium.com/*`):
     ```diff
-    const urlsList = [
+    i = [
     +    'https://your.custom.domain/*',
         'https://medium.com/*',
         ...
