@@ -64,7 +64,9 @@
         "https://eand.co/*",
         "https://techuisite.com/*",
         "https://levelupprogramming.net/*",
-        "https://betterhumans.pub/*"
+        "https://betterhumans.pub/*",
+        "https://themakingofamillionaire.com/*",
+        "https://medium.datadriveninvestor.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -128,7 +130,9 @@
     "https://eand.co/*",
     "https://techuisite.com/*",
     "https://levelupprogramming.net/*",
-    "https://betterhumans.pub/*"
+    "https://betterhumans.pub/*",
+    "https://themakingofamillionaire.com/*",
+    "https://medium.datadriveninvestor.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
