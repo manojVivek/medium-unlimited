@@ -65,6 +65,7 @@
         "https://techuisite.com/*",
         "https://levelupprogramming.net/*",
         "https://betterhumans.pub/*"
+        "https://bettermarketing.pub/*"
       ],
       "js": ["main.bundle.js"]
     }
