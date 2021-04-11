@@ -53,7 +53,8 @@ const urlsList = [
   'https://levelupprogramming.net/*',
   'https://betterhumans.pub/*',
   'https://themakingofamillionaire.com/*',
-  'https://medium.datadriveninvestor.com/*'
+  'https://medium.datadriveninvestor.com/*',
+  'https://bootcamp.uxdesign.cc/*'
 ];
 
 export default function intercept() {
