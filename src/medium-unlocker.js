@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import App from './components/App/App.jsx';
 import { getMeteredContentElement, hasMembershipPrompt, log } from './utils.js';
-import { MEMBERSHIP_PROMPT_ID } from './constants.js';
+import { MEMBERSHIP_PROMPT_ID, POST_VIEW_MONTH_COUNT_KEY } from './constants.js';
 
 let previousUrl = window.location.href;
 let loaderElement;
@@ -26,6 +26,7 @@ function registerListeners() {
 }
 
 function unlockIfHidden() {
+  _settingPostViewCount()
   if (!hasMembershipPrompt(document)) {
     log('Content is open, nothing to do');
     return;
@@ -123,6 +124,18 @@ function _showLoader() {
     document.getElementsByTagName('footer')[0].style = 'margin-top: 100px;';
   }
   return loaderElement;
+}
+
+function _settingPostViewCount(count = 0) {
+  try {
+    const initCount = localStorage.getItem(POST_VIEW_MONTH_COUNT_KEY);
+    if (initCount > 0) {
+      log('Changing posts viewed month count');
+      localStorage.setItem(POST_VIEW_MONTH_COUNT_KEY, count);
+    }
+  } catch (err) {
+
+  }
 }
 
 registerListeners();
