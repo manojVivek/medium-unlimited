@@ -65,7 +65,8 @@
         "https://techuisite.com/*",
         "https://levelupprogramming.net/*",
         "https://betterhumans.pub/*",
-        "https://baos.pub/*"
+        "https://*.baos.pub/*",
+        "https://*.datadriveninvestor.com/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -130,7 +131,8 @@
     "https://techuisite.com/*",
     "https://levelupprogramming.net/*",
     "https://betterhumans.pub/*",
-    "https://baos.pub/*"
+    "https://*.baos.pub/*",
+    "https://*.datadriveninvestor.com/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
