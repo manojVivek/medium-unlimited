@@ -52,7 +52,8 @@ const urlsList = [
   'https://techuisite.com/*',
   'https://levelupprogramming.net/*',
   'https://betterhumans.pub/*',
-  'https://baos.pub/*'
+  'https://*.baos.pub/*',
+  'https://*.datadriveninvestor.com/*'
 ];
 
 export default function intercept() {
