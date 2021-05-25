@@ -59,6 +59,7 @@ const urlsList = [
   'https://medium.datadriveninvestor.com/*',
   'https://bootcamp.uxdesign.cc/*',
   'https://*.baos.pub/*',
+  'https://www.inbitcoinwetrust.net/*',
 ];
 
 export default function intercept() {
