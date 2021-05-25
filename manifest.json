@@ -2,7 +2,7 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.9.0",
+  "version": "1.10.0",
   "manifest_version": 2,
   "background": {
     "scripts": ["background.bundle.js"]
