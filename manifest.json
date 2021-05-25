@@ -65,7 +65,13 @@
         "https://techuisite.com/*",
         "https://levelupprogramming.net/*",
         "https://betterhumans.pub/*",
-        "https://medium.datadriveninvestor.com/*"
+        "https://betterprogramming.pub/*",
+        "https://pub.towardsai.net/",
+        "https://bettermarketing.pub/",
+        "https://themakingofamillionaire.com/*",
+        "https://medium.datadriveninvestor.com/*",
+        "https://bootcamp.uxdesign.cc/*",
+        "https://*.baos.pub/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -130,7 +136,13 @@
     "https://techuisite.com/*",
     "https://levelupprogramming.net/*",
     "https://betterhumans.pub/*",
-    "https://medium.datadriveninvestor.com/*"
+    "https://betterprogramming.pub/*",
+    "https://pub.towardsai.net/",
+    "https://bettermarketing.pub/",
+    "https://themakingofamillionaire.com/*",
+    "https://medium.datadriveninvestor.com/*",
+    "https://bootcamp.uxdesign.cc/*",
+    "https://*.baos.pub/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
