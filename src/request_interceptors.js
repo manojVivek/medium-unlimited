@@ -60,6 +60,7 @@ const urlsList = [
   'https://bootcamp.uxdesign.cc/*',
   'https://*.baos.pub/*',
   'https://www.inbitcoinwetrust.net/*',
+  'https://blog.prototypr.io/*',
 ];
 
 export default function intercept() {
@@ -83,10 +84,14 @@ export default function intercept() {
 
   function getBeforeSendExtraInfoSpec() {
     const extraInfoSpec = ['blocking', 'requestHeaders'];
-    if (chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty('EXTRA_HEADERS')) {
+    if (
+      chrome.webRequest.OnBeforeSendHeadersOptions.hasOwnProperty(
+        'EXTRA_HEADERS'
+      )
+    ) {
       extraInfoSpec.push('extraHeaders');
     }
-    return extraInfoSpec
+    return extraInfoSpec;
   }
 
   function removeHeader(headers, headerToRemove) {
@@ -94,7 +99,7 @@ export default function intercept() {
   }
 
   function addHeader(headers, name, value) {
-   headers.push({name, value});
+    headers.push({name, value});
     return headers;
   }
 }

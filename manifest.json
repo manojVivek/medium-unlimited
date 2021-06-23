@@ -72,7 +72,8 @@
         "https://medium.datadriveninvestor.com/*",
         "https://bootcamp.uxdesign.cc/*",
         "https://*.baos.pub/*",
-        "https://www.inbitcoinwetrust.net/*"
+        "https://www.inbitcoinwetrust.net/*",
+        "https://blog.prototypr.io/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -144,7 +145,8 @@
     "https://medium.datadriveninvestor.com/*",
     "https://bootcamp.uxdesign.cc/*",
     "https://*.baos.pub/*",
-    "https://www.inbitcoinwetrust.net/*"
+    "https://www.inbitcoinwetrust.net/*",
+    "https://blog.prototypr.io/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
