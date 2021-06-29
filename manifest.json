@@ -73,7 +73,8 @@
         "https://bootcamp.uxdesign.cc/*",
         "https://*.baos.pub/*",
         "https://www.inbitcoinwetrust.net/*",
-        "https://blog.prototypr.io/*"
+        "https://blog.prototypr.io/*",
+        "https://blog.devgenius.io/*"
       ],
       "js": ["main.bundle.js"]
     }
