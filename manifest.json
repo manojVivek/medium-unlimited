@@ -153,7 +153,9 @@
     "https://medium.datadriveninvestor.com/*",
     "https://bootcamp.uxdesign.cc/*",
     "https://*.baos.pub/*",
-    "https://www.inbitcoinwetrust.net/*"
+    "https://www.inbitcoinwetrust.net/*",
+    "https://blog.prototypr.io/*",
+    "https://blog.devgenius.io/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
