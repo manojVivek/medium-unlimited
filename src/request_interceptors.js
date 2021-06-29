@@ -61,6 +61,7 @@ const urlsList = [
   'https://*.baos.pub/*',
   'https://www.inbitcoinwetrust.net/*',
   'https://blog.prototypr.io/*',
+  'https://blog.devgenius.io/*'
 ];
 
 export default function intercept() {

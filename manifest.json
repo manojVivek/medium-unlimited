@@ -2,10 +2,15 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.10.0",
+  "version": "1.20.0",
   "manifest_version": 2,
+  "optional_permissions": [
+		"*://*/*"
+	],
   "background": {
-    "scripts": ["background.bundle.js"]
+    "scripts": [
+      "background.bundle.js"
+    ]
   },
   "browser_action": {
     "default_icon": "static/logo_128.png",
@@ -73,7 +78,8 @@
         "https://bootcamp.uxdesign.cc/*",
         "https://*.baos.pub/*",
         "https://www.inbitcoinwetrust.net/*",
-        "https://blog.prototypr.io/*"
+        "https://blog.prototypr.io/*",
+        "https://blog.devgenius.io/*"
       ],
       "js": ["main.bundle.js"]
     }
@@ -87,6 +93,8 @@
   "permissions": [
     "webRequest",
     "webRequestBlocking",
+    "contextMenus",
+    "activeTab",
     "https://medium.com/*",
     "https://towardsdatascience.com/*",
     "https://hackernoon.com/*",
@@ -145,8 +153,7 @@
     "https://medium.datadriveninvestor.com/*",
     "https://bootcamp.uxdesign.cc/*",
     "https://*.baos.pub/*",
-    "https://www.inbitcoinwetrust.net/*",
-    "https://blog.prototypr.io/*"
+    "https://www.inbitcoinwetrust.net/*"
   ],
   "web_accessible_resources": ["static/*"]
 }
