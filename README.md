@@ -25,5 +25,33 @@ This will generate the bundle and other required files in ./dist directory.
 Load the generated chrome extension in chrome by `Kebab menu(⋮) -> More Tools -> Extensions` and then click on `LOAD UNPACKED` and select the dist folder.
 Chrome extension is loaded and ready to use.
 
+# Adding custom domains
+
+1. Go to the unpacked folder of the extension
+2. Open `manifest.json` in any text editor and add your website in both `"matches"` and `"permissions"` lists:
+    ```diff
+    "matches": [
+    +    "https://your.custom.domain/*",
+        "https://medium.com/*",
+        ...
+    ]
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+    +    "https://your.custom.domain/*",
+        "https://medium.com/*",
+        ...
+    ]
+    ```
+3. Open `background.bundle.js` and add your website in the list at the end of the file (you can find this list by some existing sites like `https://medium.com/*`):
+    ```diff
+    i = [
+    +    'https://your.custom.domain/*',
+        'https://medium.com/*',
+        ...
+    ];
+    ```
+4. Save files and load the extension again in your browser
+
 # Screenshot:
 ![alt text](https://raw.githubusercontent.com/manojVivek/medium-unlimited/master/designs/screenshot.png "Before after comparison")
