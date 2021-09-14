@@ -1,6 +1,8 @@
 import {getTwitterReferer} from './utils';
 
 const urlsList = [
+  'https://blog.devgenius.io/*',
+  'https://medium.com/swlh/*',
   'https://medium.com/*',
   'https://www.google.com/search/*',
   'https://towardsdatascience.com/*',
