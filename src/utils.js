@@ -1,7 +1,13 @@
 import config from './config';
 import {setUserId, getUserId} from './storage';
 import {track} from './analytics';
-import {MEMBERSHIP_PROMPT_CLASSNAME, MEMBERSHIP_PROMPT_ID, METERED_CONTENT_CLASSNAME} from './constants';
+import {
+  MEMBERSHIP_PROMPT_CLASSNAME,
+  MEMBERSHIP_PROMPT_ID,
+  METERED_CONTENT_CLASSNAME,
+} from './constants';
+
+const contextMenuId = 'delete_cookies_context';
 
 export function log(...messages) {
   if (process.env.NODE_ENV === 'production') {
@@ -20,11 +26,40 @@ export function amplitudeApiKey() {
 export function init() {
   chrome.runtime.setUninstallURL('https://manojvivek.typeform.com/to/c0VaBs');
   chrome.runtime.onInstalled.addListener(() => {
+    createCookiesContextMenu();
     if (!getUserId()) {
       setUserId(new Date().getTime().toString());
       track('INSTALLED');
     }
   });
+}
+
+export function createCookiesContextMenu() {
+  chrome.contextMenus.remove(contextMenuId, () => chrome.runtime.lastError);
+  //remove the id if context menu already created
+  chrome.contextMenus.create({
+    id: contextMenuId,
+    type: 'normal',
+    checked: false,
+    title: 'Delete all cookies',
+    contexts: ['page_action', 'browser_action', 'page'],
+  });
+  chrome.contextMenus.onClicked.addListener(deleteAllCookies);
+}
+export function deleteAllCookies() {
+  chrome.cookies.getAll({}, function (cookies) {
+    cookies.forEach((cookie) => {
+      cookie.domain = 'https://' + cookie.domain;
+      if (cookie.domain.startsWith('https://.')) {
+        cookie.domain = cookie.domain.replace('https://.', 'https://*.');
+      }
+      chrome.cookies.remove({
+        url: cookie.domain + cookie.path,
+        name: cookie.name,
+      });
+    });
+  });
+  return;
 }
 
 export function urlWithoutQueryParams(url) {
@@ -39,7 +74,9 @@ function hasMembershipPromptNew(document) {
   if (!article) {
     return false;
   }
-  const computedStyles = (document.defaultView || window).getComputedStyle(article.nextSibling);
+  const computedStyles = (document.defaultView || window).getComputedStyle(
+    article.nextSibling
+  );
   if (!computedStyles.background) {
     return false;
   }

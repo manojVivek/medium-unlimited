@@ -2,15 +2,11 @@
   "name": "Medium Unlimited: Read paid content for free!",
   "description": "Unlocks medium.com for unlimited reads, no membership required",
   "short_name": "Medium Unlimited",
-  "version": "1.20.0",
+  "version": "1.21.0",
   "manifest_version": 2,
-  "optional_permissions": [
-		"*://*/*"
-	],
+  "optional_permissions": ["*://*/*"],
   "background": {
-    "scripts": [
-      "background.bundle.js"
-    ]
+    "scripts": ["background.bundle.js"]
   },
   "browser_action": {
     "default_icon": "static/logo_128.png",
@@ -94,6 +90,7 @@
     "webRequest",
     "webRequestBlocking",
     "contextMenus",
+    "cookies",
     "activeTab",
     "https://medium.com/*",
     "https://towardsdatascience.com/*",
